@@ -81,6 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Unity\HexRailways\Editor\BuildHexRailwaysBundle.cs" />
     <Compile Include="Core\HexRailwayPrefabNames.cs" />
     <Compile Include="Core\HexRailwaysRegistrar.cs" />
     <Compile Include="Core\Localization\LocalizationRegistrar.cs" />
@@ -91,6 +92,23 @@
     <Folder Include="Assets\AssetBundles\" />
     <Folder Include="Localization\" />
     <Folder Include="Pieces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Unity\HexRailways\Editor\BuildHexRailwaysBundle.cs.meta" />
+    <None Include="Assets\Unity\HexRailways\Materials\HexRail_Ballast_Mat.mat" />
+    <None Include="Assets\Unity\HexRailways\Materials\HexRail_Ballast_Mat.mat.meta" />
+    <None Include="Assets\Unity\HexRailways\Materials\HexRail_Wood_Dark_Mat.mat" />
+    <None Include="Assets\Unity\HexRailways\Materials\HexRail_Wood_Dark_Mat.mat.meta" />
+    <None Include="Assets\Unity\HexRailways\Materials\HexRail_Wood_Mat.mat" />
+    <None Include="Assets\Unity\HexRailways\Materials\HexRail_Wood_Mat.mat.meta" />
+    <None Include="Assets\Unity\HexRailways\Prefabs\hex_railways_wood_rail_straight_4m.prefab" />
+    <None Include="Assets\Unity\HexRailways\Prefabs\hex_railways_wood_rail_straight_4m.prefab.meta" />
+    <None Include="Assets\Unity\HexRailways\Shaders\JVLmock_Custom_Piece.shader" />
+    <None Include="Assets\Unity\HexRailways\Shaders\JVLmock_Custom_Piece.shader.meta" />
+    <None Include="Assets\Unity\HexRailways\Textures\gravel_stones_diff_1k.jpg.meta" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Unity\HexRailways\Textures\gravel_stones_diff_1k.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
