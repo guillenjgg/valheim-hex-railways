@@ -81,8 +81,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\HexRailwayPrefabNames.cs" />
+    <Compile Include="Core\HexRailwaysRegistrar.cs" />
+    <Compile Include="Core\Localization\LocalizationRegistrar.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\AssetBundles\" />
+    <Folder Include="Localization\" />
+    <Folder Include="Pieces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
