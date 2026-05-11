@@ -2,6 +2,8 @@
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
+using System;
+using System.Runtime.CompilerServices;
 
 namespace HexRailway.Core
 {
@@ -20,6 +22,7 @@ namespace HexRailway.Core
                 return;
             }
 
+            RegisterRecipePrefabs();
             var registeredCount = RegisterWoodRailSection();
 
             _registered = true;
@@ -27,6 +30,8 @@ namespace HexRailway.Core
 
             Jotunn.Logger.LogInfo($"HexRailways registered {registeredCount} custom piece(s).");
         }
+
+        
 
         private static int RegisterWoodRailSection()
         {
@@ -51,7 +56,9 @@ namespace HexRailway.Core
                 Category = HexRailwayPrefabNames.HexRailwayCategory
             };
 
-            config.AddRequirement("Wood", 1, true);
+            config.AddRequirement("Wood", 4, true);
+            config.AddRequirement("hex_railway_flint_nails", 4, true);
+            config.AddRequirement("Stone", 2, true);
 
             return config;
         }
@@ -120,6 +127,37 @@ namespace HexRailway.Core
                 m_enabled = prefab != null,
                 m_variant = -1
             };
+        }
+
+        // We'll make this generic later to create all nail recipes
+        private static void AddFlintNails()
+        {
+            ItemConfig flintNails = new ItemConfig();
+            flintNails.Name = $"{LocalizationRegistrar.TokenPrefix}item_flint_nails";
+            flintNails.Description = $"{LocalizationRegistrar.TokenPrefix}item_flint_nails_desc";
+            flintNails.CraftingStation = CraftingStations.Workbench;
+            flintNails.AddRequirement("Flint", 2);
+            flintNails.AddRequirement("Wood", 1);
+            flintNails.Weight = 0.1f;
+            flintNails.Amount = 10;
+            flintNails.StackSize = 200;
+
+            CustomItem flintNailsItem = new CustomItem("hex_railway_flint_nails", "BronzeNails", flintNails);
+            var addNails = ItemManager.Instance.AddItem(flintNailsItem);
+
+            if (addNails)
+            {
+                Jotunn.Logger.LogInfo("Flint nails item registered successfully.");
+            }
+            else
+            {
+                Jotunn.Logger.LogError("Failed to register flint nails item.");
+            }
+        }
+
+        private static void RegisterRecipePrefabs()
+        {
+            AddFlintNails();
         }
     }
 }
